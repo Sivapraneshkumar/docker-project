@@ -1,4 +1,4 @@
-name: Docker Build
+name: Docker Build & Push
 
 on:
   push:
@@ -23,6 +23,14 @@ jobs:
           cd backend
           npm install
 
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build Docker image
-        run: |
-          docker build -t my-backend ./backend
+        run: docker build -t sivapranesh123/docker-project ./backend
+
+      - name: Push Docker image
+        run: docker push sivapranesh123/docker-project
