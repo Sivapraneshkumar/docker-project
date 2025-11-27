@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t sivapranesh123/docker-project ./backend
+        run: docker build -t sivapranesh123/docker-project:latest ./backend
 
       - name: Push Docker image
-        run: docker push sivapranesh123/docker-project
+        run: docker push sivapranesh123/docker-project:latest
