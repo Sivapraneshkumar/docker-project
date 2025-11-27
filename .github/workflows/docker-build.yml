@@ -34,3 +34,4 @@ jobs:
 
       - name: Push Docker image
         run: docker push sivapranesh123/docker-project
+git add .github/workflows/docker-build.yml
